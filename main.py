@@ -139,7 +139,8 @@ def return_detail(employee: EmployeeInput):
         content={
             "message": "patient input ok",
             "patient_detail": employee_data_json
-            # employee ko json me convert kr k return krna
         }
     )
+
+# employee ko json me convert kr k return krna
 
