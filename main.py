@@ -1,8 +1,11 @@
 import json
 
 from fastapi import FastAPI, status
+from jinja2.lexer import count_newlines
 from starlette.responses import JSONResponse
 from utils import read_employee_names_json_file
+
+from schemas import EmployeeInput
 
 app = FastAPI()
 
@@ -73,16 +76,19 @@ def check_employee(name: str):
 
 
 @app.get("/search-books/{author_name}")
-def search_books_by_name(author_name: str, category: str | None = None):
+def search_books_by_name(author_name: str,
+                         category: str | None = None,
+                         starting_word: str | None = None):
+    author_name = author_name.lower()
     try:
-        print(f"/search-books api is called with author_name {author_name}, - {category}")
+        print(f"/search-books api is called with author_name {author_name}, - {category} - {starting_word}")
 
         with open("books_v1.json", "r") as file:
             books = json.load(file)
 
-        author_names_in_db = [b['author_last_name'] for b in books]
+        author_names_in_db = [b['author_last_name'].lower() for b in books]
         print(author_names_in_db)
-        if author_name not in author_names_in_db:
+        if author_name.lower() not in author_names_in_db:
             return JSONResponse(
                 status_code=404,
                 content={
@@ -95,13 +101,16 @@ def search_books_by_name(author_name: str, category: str | None = None):
 
         author_books = []
         for book in books:
-            if book["author_last_name"] == author_name:
-                print("book found")
-                if category is not None and category == book["category"]:
-                    print("category found")
-                    author_books.append(book)
+            print(book['author_last_name'])
+            if book["author_last_name"].lower() == author_name.lower():
+                if category:
+                    if book["category"] == category:
+                        author_books.append(book)
                 else:
                     author_books.append(book)
+
+        if starting_word:
+            author_books = [book for book in author_books if book["name"].lower().startswith(starting_word.lower())]
 
         return JSONResponse(
             status_code=200,
@@ -118,4 +127,19 @@ def search_books_by_name(author_name: str, category: str | None = None):
                 "message": f"server error {e}"
             }
         )
+
+
+@app.post("/return-detail")
+def return_detail(employee: EmployeeInput):
+    print("/return-detail api is called")
+    print(employee)
+    employee_data_json = employee.model_dump_json()
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
+            "message": "patient input ok",
+            "patient_detail": employee_data_json
+            # employee ko json me convert kr k return krna
+        }
+    )
 
