@@ -1,7 +1,6 @@
 import json
 
 from fastapi import FastAPI, status
-from jinja2.lexer import count_newlines
 from starlette.responses import JSONResponse
 from utils import read_employee_names_json_file
 
@@ -11,7 +10,6 @@ app = FastAPI()
 
 @app.get("/return-message")
 def read_root():
-    a = 4 / 0
     return {"message": "Hello World"}
 
 
