@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "The Great Gatsby",
+    "category": "fiction",
+    "author_last_name": "Lee"
+  },
+  {
+    "id": 2,
+    "name": "To Kill a Mockingbird",
+    "category": "fiction",
+    "author_last_name": "Lee"
+  },
+  {
+    "id": 3,
+    "name": "1984",
+    "category": "dystopian",
+    "author_last_name": "Orwell"
+  },
+  {
+    "id": 4,
+    "name": "Pride and Prejudice",
+    "category": "romance",
+    "author_last_name": "Austen"
+  },
+  {
+    "id": 5,
+    "name": "The Hobbit",
+    "category": "fantasy",
+    "author_last_name": "Lee"
+  },
+  {
+    "id": 6,
+    "name": "Harry Potter and the Philosopher's Stone",
+    "category": "fantasy",
+    "author_last_name": "Rowling"
+  },
+  {
+    "id": 7,
+    "name": "The Catcher in the Rye",
+    "category": "fiction",
+    "author_last_name": "Salinger"
+  },
+  {
+    "id": 8,
+    "name": "Animal Farm",
+    "category": "satire",
+    "author_last_name": "Orwell"
+  },
+  {
+    "id": 9,
+    "name": "The Alchemist",
+    "category": "fiction",
+    "author_last_name": "Coelho"
+  },
+  {
+    "id": 10,
+    "name": "The Kite Runner",
+    "category": "historical fiction",
+    "author_last_name": "Hosseini"
+  },
+  {
+    "id": 11,
+    "name": "The Book Thief",
+    "category": "historical fiction",
+    "author_last_name": "Zusak"
+  },
+  {
+    "id": 12,
+    "name": "The Lord of the Rings",
+    "category": "fantasy",
+    "author_last_name": "Tolkien"
+  },
+  {
+    "id": 13,
+    "name": "The Da Vinci Code",
+    "category": "mystery",
+    "author_last_name": "Lee"
+  },
+  {
+    "id": 14,
+    "name": "The Hunger Games",
+    "category": "dystopian",
+    "author_last_name": "Collins"
+  },
+  {
+    "id": 15,
+    "name": "The Chronicles of Narnia",
+    "category": "fantasy",
+    "author_last_name": "Lee"
+  }
+]
